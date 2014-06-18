@@ -108,6 +108,62 @@ return array(
                     ),
                 ),
             ),
+            'admin-reporte-consolicacion' => array(
+                'type'    => 'segment',
+                'options' => array(
+                    'route'    => '/admin/reporte/consolidacion[/:action][/:id]',
+                    'constraints' => array(
+                        'action' => '[a-zA-Z][a-zA-Z0-9_-]*',
+                        'id'     => '[0-9]+',
+                    ),
+                    'defaults' => array(
+                        'controller' => 'Admin\Controller\Consolidacion',
+                        'action'     => 'index',
+                    ),
+                ),
+            ),
+            'admin-reporte-desconsolicacion' => array(
+                'type'    => 'segment',
+                'options' => array(
+                    'route'    => '/admin/reporte/desconsolidacion[/:action][/:id]',
+                    'constraints' => array(
+                        'action' => '[a-zA-Z][a-zA-Z0-9_-]*',
+                        'id'     => '[0-9]+',
+                    ),
+                    'defaults' => array(
+                        'controller' => 'Admin\Controller\Desconsolidacion',
+                        'action'     => 'index',
+                    ),
+                ),
+            ),
+            'admin-reporte-detaildamage' => array(
+                'type'    => 'segment',
+                'options' => array(
+                    'route'    => '/admin/reporte/detaildamage[/:action][/:id]',
+                    'constraints' => array(
+                        'action' => '[a-zA-Z][a-zA-Z0-9_-]*',
+                        'id'     => '[0-9]+',
+                    ),
+                    'defaults' => array(
+                        'controller' => 'Admin\Controller\Detaildamage',
+                        'action'     => 'index',
+                    ),
+                ),
+            ),
+            'admin-reporte-detaildiference' => array(
+                'type'    => 'segment',
+                'options' => array(
+                    'route'    => '/admin/reporte/detaildiference[/:action][/:id]',
+                    'constraints' => array(
+                        'action' => '[a-zA-Z][a-zA-Z0-9_-]*',
+                        'id'     => '[0-9]+',
+                    ),
+                    'defaults' => array(
+                        'controller' => 'Admin\Controller\Detaildiference',
+                        'action'     => 'index',
+                    ),
+                ),
+            ),
              
         ),
     ),
@@ -138,6 +194,10 @@ return array(
             'Admin\Controller\Administrador' => 'Admin\Controller\AdministradorController',
             'Admin\Controller\Material' => 'Admin\Controller\MaterialController',
             'Admin\Controller\Nave' => 'Admin\Controller\NaveController',
+            'Admin\Controller\Consolidacion' => 'Admin\Controller\ConsolidacionController',
+            'Admin\Controller\Desconsolidacion' => 'Admin\Controller\DesconsolidacionController',
+            'Admin\Controller\Detaildamage' => 'Admin\Controller\DetaildamageController',
+            'Admin\Controller\Detaildiference' => 'Admin\Controller\DetaildiferenceController',
             'Admin\Controller\Destino' => 'Admin\Controller\DestinoController',
         ),
     ),
