@@ -14,8 +14,35 @@ use Zend\View\Model\ViewModel;
 
 class MaterialController extends AbstractActionController
 {
+    protected $materialTable;
+    
     public function indexAction()
     {
-        return new ViewModel();
+      return new ViewModel(array(
+             'material' => $this->getMaterialTable()->fetchAll(),
+             'template' => $this->layout('layout/layout2'),
+         ));
     }
+    public function agregarAction()
+    {
+      
+    }
+    
+    public function editarAction()
+    {
+      
+    }
+    
+    public function borrarAction()
+    {
+      
+    }
+     public function getMaterialTable()
+     {
+         if (!$this->materialTable) {
+             $sm = $this->getServiceLocator();
+             $this->materialTable = $sm->get('Admin\Model\MaterialTable');
+         }
+         return $this->materialTable;
+     }
 }

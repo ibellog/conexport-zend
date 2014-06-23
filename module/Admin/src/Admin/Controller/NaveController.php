@@ -14,8 +14,37 @@ use Zend\View\Model\ViewModel;
 
 class NaveController extends AbstractActionController
 {
+    protected $naveTable;
+    
     public function indexAction()
     {
-        return new ViewModel();
+      return new ViewModel(array(
+             'nave' => $this->getNaveTable()->fetchAll(),
+             'template' => $this->layout('layout/layout2'),
+         ));
     }
+    public function agregarAction()
+    {
+      
+    }
+    
+    public function editarAction()
+    {
+      
+    }
+    
+    public function borrarAction()
+    {
+      
+    }
+    
+    public function getNaveTable()
+     {
+         if (!$this->naveTable) {
+             $sm = $this->getServiceLocator();
+             $this->naveTable = $sm->get('Admin\Model\NaveTable');
+         }
+         return $this->naveTable;
+     }
+    
 }

@@ -16,6 +16,9 @@ class DetaildamageController extends AbstractActionController
 {
     public function indexAction()
     {
-        return new ViewModel();
+        return new ViewModel(array(
+             
+             'template' => $this->layout('layout/layout2'),
+         ));
     }
 }

@@ -1,1 +1,90 @@
-<h1>Aqui va el mantenedor de Usuario</h1>
+<?php
+ // module/Album/view/album/album/index.phtml:
+
+ $title = 'Usuarios';
+ $subtitle= 'Usuarios actuales';
+ $this->headTitle($title);
+ ?>
+ 
+ 
+<div class="panel-heading">
+    <?php echo $this->escapeHtml($title); ?>
+</div>
+<div class="panel-body">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="panel panel-primary">
+             <!-- Default panel contents -->
+                <div class="panel-heading"><?php echo $this->escapeHtml($subtitle); ?> </div>
+                    <div class="panel-body">
+                        <p>Lista de usuarios actualmente registrados. Eliga editar o Eliminar</p>
+                            <div class="input-group custom-search-form">
+                                <input type="text" class="form-control" placeholder="Buscar...">
+                                <span class="input-group-btn">
+                                    <button class="btn btn-default" type="button">
+                                        <i class="fa fa-search"></i>
+                                    </button>
+                                </span>
+                            </div>
+        <hr>
+        <a class="btn btn-success btn-sm" href="<?php echo $this->url('admin-usuario', array('action'=>'agregar'));?>">Agregar nuevo usuario</a>
+                    </div>
+
+      <!-- Table -->
+                    <div class="table-responsive">
+          
+                <table class="table">
+                    <thead>
+                            <tr>
+                              <th>Nombre</th>
+                              <th>Apellido</th>
+                              <th>Rut</th>
+                              <th>Correo</th>
+                              <th>Tipo</th>
+                              <th>Fono</th>
+                              <th>&nbsp;</th>
+                            </tr>
+                    </thead>
+                    <tbody>
+                            <?php foreach ($usuario as $u) : ?>
+                            <tr>
+
+
+                                <td><?php echo $this->escapeHtml($u->nombre);?></td>
+                                <td><?php echo $this->escapeHtml($u->apellido);?></td>
+                                <td><?php echo $this->escapeHtml($u->rut);?></td>
+                                <td><?php echo $this->escapeHtml($u->correo);?></td>
+                                <td><?php echo $this->escapeHtml($u->tipo);?></td>
+                                <td><?php echo $this->escapeHtml($u->fono);?></td>
+                                <td>
+                                    <a class="btn btn-warning btn-sm" href="<?php echo $this->url('admin-usuario',
+                                            array('action'=>'editar', 'id_usuario' => $u->id_usuario));?>">Editar</a>
+                                   <a class="btn btn-danger btn-sm" href="<?php echo $this->url('admin-usuario',
+                                        array('action'=>'borrar', 'id_usuario' => $u->id_usuario));?>">Borrar</a>
+                                </td>
+                            </tr>
+                            <?php endforeach; ?>
+                    </tbody>
+                 </table>        
+           
+                    </div>
+                </div>
+        </div>
+    </div>
+                                <!-- /.col-lg-6 (nested) -->
+                                
+                                <!-- /.col-lg-6 (nested) -->
+</div>     
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+      
+ 

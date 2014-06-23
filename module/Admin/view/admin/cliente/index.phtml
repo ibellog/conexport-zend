@@ -1,1 +1,81 @@
-<h1>Aqui va el mantenedor de Clientes</h1>
+<?php
+ // module/Album/view/album/album/index.phtml:
+
+ $title = 'Clientes';
+ $subtitle= 'Clientes actuales';
+ $this->headTitle($title);
+ ?>
+ 
+ 
+<div class="panel-heading">
+    <?php echo $this->escapeHtml($title); ?>
+</div>
+<div class="panel-body">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="panel panel-primary">
+             <!-- Default panel contents -->
+                <div class="panel-heading"><?php echo $this->escapeHtml($subtitle); ?> </div>
+                    <div class="panel-body">
+                        <p>Lista de clientes actualmente registrados. Eliga editar o Eliminar</p>
+                            <div class="input-group custom-search-form">
+                                <input type="text" class="form-control" placeholder="Buscar...">
+                                <span class="input-group-btn">
+                                    <button class="btn btn-default" type="button">
+                                        <i class="fa fa-search"></i>
+                                    </button>
+                                </span>
+                            </div>
+        <hr>
+        <a class="btn btn-success btn-sm" href="<?php echo $this->url('admin-cliente', array('action'=>'agregar'));?>">Agregar nuevo usuario</a>
+                    </div>
+
+      <!-- Table -->
+                    <div class="table-responsive">
+          
+                <table class="table">
+                    <thead>
+                            <tr>
+                              <th>Organizacion</th>
+                              <th>Razon Social</th>
+                              <th>Rut</th>
+                              <th>Direccion</th>
+                              <th>Fono</th>
+                              <th>Usuario</th>
+                              <th>&nbsp;</th>
+                            </tr>
+                    </thead>
+                    <tbody>
+                            <?php foreach ($cliente as $u) : ?>
+                            <tr>
+
+
+                                <td><?php echo $this->escapeHtml($u->organizacion);?></td>
+                                <td><?php echo $this->escapeHtml($u->razon_social);?></td>
+                                <td><?php echo $this->escapeHtml($u->rut_cliente);?></td>
+                                <td><?php echo $this->escapeHtml($u->direccion);?></td>
+                                <td><?php echo $this->escapeHtml($u->fono_cliente);?></td>
+                                <td><?php echo $this->escapeHtml($u->usuario_cliente);?></td>
+                                <td>
+                                    <a class="btn btn-warning btn-sm" href="<?php echo $this->url('admin-cliente',
+                                            array('action'=>'editar', 'id_usuario' => $u->id_cliente));?>">Editar</a>
+                                   <a class="btn btn-danger btn-sm" href="<?php echo $this->url('admin-cliente',
+                                        array('action'=>'borrar', 'id_usuario' => $u->id_cliente));?>">Borrar</a>
+                                </td>
+                            </tr>
+                            <?php endforeach; ?>
+                    </tbody>
+                 </table>        
+           
+                    </div>
+                </div>
+        </div>
+    </div>
+                                <!-- /.col-lg-6 (nested) -->
+                                
+                                <!-- /.col-lg-6 (nested) -->
+</div>     
+            
+            
+            
+            

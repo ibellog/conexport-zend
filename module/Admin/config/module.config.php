@@ -14,7 +14,7 @@ return array(
             'admin-inicio' => array(
                 'type'    => 'segment',
                 'options' => array(
-                    'route'    => '/admin[/:action]',
+                    'route'    => '/admin/inicio[/:action]',
                     'constraints' => array(
                         'action' => '[a-zA-Z][a-zA-Z0-9_-]*',
                     ),

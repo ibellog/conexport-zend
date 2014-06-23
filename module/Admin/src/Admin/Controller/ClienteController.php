@@ -14,8 +14,38 @@ use Zend\View\Model\ViewModel;
 
 class ClienteController extends AbstractActionController
 {
+    
+    protected $clienteTable;
+    
     public function indexAction()
     {
-        return new ViewModel();
+       return new ViewModel(array(
+             'cliente' => $this->getClienteTable()->fetchAll(),
+             'template' => $this->layout('layout/layout2'),
+         ));
+      
     }
+    public function agregarAction()
+    {
+      
+    }
+    
+    public function editarAction()
+    {
+      
+    }
+    
+    public function borrarAction()
+    {
+      
+    }
+    
+     public function getClienteTable()
+     {
+         if (!$this->clienteTable) {
+             $sm = $this->getServiceLocator();
+             $this->clienteTable = $sm->get('Admin\Model\ClienteTable');
+         }
+         return $this->clienteTable;
+     }
 }
